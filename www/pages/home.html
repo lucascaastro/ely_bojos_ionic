@@ -1,0 +1,48 @@
+<ion-content has-header="true" has-footer="true">
+  <br/>
+  <br/>
+<div class="row">
+  <div class="col ">
+    <button class="button button-block button-balanced"ng-click="onItemAdd()">  Adicionar Pedido</button>
+  </div>
+  <div class="col ">
+    <button class="button button-block button-assertive" ng-click="onClickRemove()">  Remover</button>
+  </div>
+</div>
+  <ion-list show-delete="removeStatus">
+   <ion-item ng-repeat ="pedido in pedidos track by $index">
+     <div class="row" style="font-size: 14px; color: #666;">
+       <div class="col col-90">
+         <b>Pedido:</b> {{ $index + 1}}<br>
+         <b>Cliente:</b> {{pedido.nome}}<br>
+         <b>Bojo Vermelho:</b> {{pedido.bojo_vermelho}}<br>
+         <b>Bojo Preto:</b> {{pedido.bojo_preto}}<br>
+         <b>Bojo Branco:</b> {{pedido.bojo_branco}}<br>
+         <br>
+         <p ng-hide ="pedido.vermelho < 1">Tecido Vermelho Necessário: {{pedido.tecido_vermelho_necessario}} Kilos</p>
+         <p ng-hide ="pedido.preto < 1">Tecido Preto Necessário: {{pedido.tecido_preto_necessario}} Kilos</p>
+         <p ng-hide ="pedido.branco < 1">Tecido Branco Necessário: {{pedido.tecido_branco_necessario}} Kilos</p>
+         <p>Espuma Necessária: {{pedido.espuma_necessaria}} Metros</p>
+
+         <ion-option-button class="button-positive"ng-click="onItemEdit(pedido)">Editar</ion-option-button>
+         <ion-delete-button class="ion-minus-circled" ng-click="onItemremove(pedido)"></ion-delete-button>
+       </div>
+    </div>
+   </ion-item>
+   <ion-item>
+     <div class="row" style="font-size: 14px; color: #666;">
+       <div class="col col-90">
+         <h4> Materia Prima em Estoque</h4>
+         Tecido Vermelho:<b> {{ +estoque.tecido_vermelho.toFixed(2) }}</b> Kilos<br>
+         Tecido Preto:<b> {{ +estoque.tecido_preto.toFixed(2) }}</b> Kilos<br>
+         Tecido Branco:<b> {{ +estoque.tecido_branco.toFixed(2) }}</b> Kilos<br>
+         Espuma: <b>{{ +estoque.espuma.toFixed(2) }}</b> Metros<br>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+       </div>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

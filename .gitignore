@@ -1,0 +1,14 @@
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
+node_modules/
+platforms/
+plugins/
+node_module
+ionic1
+
+node_modules
+trabalho
+sql
+04.Atividade MRP - Fábrica de Bojo
+unnamed
